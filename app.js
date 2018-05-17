@@ -1,6 +1,11 @@
 'use strict';
 
 var nodeModel = require('./lib/node');
+var appjson = require('./app.json');
+
+Object.keys(appjson[0].env).forEach((key) => {
+  process.env[key] = appjson[0].env[key]
+})
 
 var node = new nodeModel();
 
